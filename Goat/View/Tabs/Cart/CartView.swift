@@ -8,17 +8,54 @@
 import SwiftUI
 
 struct CartView: View {
+    
     var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(MOCK_PRODUCTS) { rr in
-                    NavigationLink( destination: ProductDetailsView(product: rr)) {
-                        
-                        CartProducttCell()
+        
+        VStack {
+            HStack {
+                Text("Cart")
+                    .font(.system(size: 30, weight: .bold))
+                
+                Spacer()
+                
+                // Button(action: {}) {
+                NavigationLink(destination:
+                                CheckoutView(product:
+                                                Product(id: 0,
+                                                        name: "name",
+                                                        description: "string",
+                                                        image: "string",
+                                                        images: ["string"],
+                                                        price: 0.0,
+                                                        tags: ["string"],
+                                                        isCurrentUser: true
+                                                )
+                                             
+                                )) {
+                    Text("Checkout")
+                        .modifier(ClearButtonStyleSmall(bgColor: .black))
+                }
+            }
+            .padding()
+            
+            ScrollView {
+                VStack {
+                    ForEach(MOCK_PRODUCTS) { product in
+                        NavigationLink( destination: ProductDetailsView(product: product)) {
+                            
+                            CartProducttCell(product: product)
+                            
+                        }
+                        Divider()
+
                     }
                 }
             }
+            
+
         }
+        .navigationBarHidden(true)
+        
         
         
     }

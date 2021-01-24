@@ -32,6 +32,24 @@ struct Modifiers: View {
             })
             .modifier(ClearButtonEvenSmall(bgColor: .black))
             
+            Button(action: {}, label: {
+                
+                VStack(alignment: .leading ) {
+                    Text("Standard: $12")
+                        .foregroundColor(.black)
+                        .padding(.bottom, 5)
+                    Text("The item will be shipped within 24 hours ")
+
+                }
+            })
+            .modifier(ClearButtonStyleleading(bgColor: .black))
+            
+            Button(action: {}, label: {
+                Text("Checkout")
+            })
+            .modifier(myBlackCheckout(bgColor: .black))
+            
+            
             
         }
         
@@ -115,6 +133,49 @@ struct ClearButtonStyleLarge: ViewModifier {
             .padding(.all, 14)
             .overlay(
                 RoundedRectangle(cornerRadius: 3)
+                    .stroke(bgColor, lineWidth: 1)
+            )
+    }
+}
+
+
+// See through Button
+struct ClearButtonStyleleading: ViewModifier {
+    var bgColor: Color
+    
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 13))
+            .foregroundColor(bgColor)
+        
+          //  .padding(.leading, 2)
+          //  .padding(.trailing, 50)
+            .padding(.trailing, 60)
+            .padding(.all, 15)
+            .overlay(
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(bgColor, lineWidth: 1)
+            )
+    }
+}
+
+
+
+
+// Black Checkout
+struct myBlackCheckout: ViewModifier {
+    var bgColor: Color
+  
+    
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(.white)
+            .font(.system(size: 14, weight: .regular, design: .default))
+            .frame(width: 300, height: 42, alignment: .center)
+            .contentShape(Rectangle())
+            .background(Color.black)
+            .overlay(
+                RoundedRectangle(cornerRadius: 4)
                     .stroke(bgColor, lineWidth: 1)
             )
     }

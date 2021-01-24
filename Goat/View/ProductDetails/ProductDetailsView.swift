@@ -63,11 +63,11 @@ struct ProductDetailsView: View {
     }
 }
 
-struct ProductDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            ProductDetailsView(product: Product(id: 0, name: "name", description: "description....", image: "680720_01", price: 355, tags: ["String"], isCurrentUser: true))
-            
-        }
-    }
-}
+//struct ProductDetailsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationView {
+//            ProductDetailsView(product: Product(id: 0, name: "name", description: "description....", image: "680720_01", price: 355, tags: ["String"], isCurrentUser: true))
+//            
+//        }
+//    }
+//}

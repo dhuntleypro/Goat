@@ -18,27 +18,11 @@ struct SearchView: View {
             SearchBar(text: $searchText)
                 .padding()
             
-         //   VStack(alignment: .leading) {
+            ScrollView(.vertical, showsIndicators: false) {
                 
-               ScrollView(.vertical, showsIndicators: false) {
-                        HStack(spacing:-4) {
-                            
-                            LazyVGrid(columns: columns) {
-                                
-                                ForEach(MOCK_PRODUCTS) { product in
-                                    NavigationLink(destination: ProductDetailsView(product: product)) {
-                                        ProductCell02(product: product)
-                                    }
-                                    .padding(.bottom, -8)
-                                }
-                            }
-                            .padding(.trailing, 8)
-                            // .padding(-8) // right side is a little out
-                            
-                        }
+                ProductCell02Loop()
                 
-                        
-                    }
+            }
                 
            // }
             Spacer()

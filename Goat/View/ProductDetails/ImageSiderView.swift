@@ -14,10 +14,9 @@ struct ImageSiderView: View {
         ScrollView(.horizontal, showsIndicators: true)  {
             HStack(spacing: 50) {
              //   ForEach(product.images.indices) { idx in
-                ForEach(0..<5) { _ in
-                    
-                //    Image(product.images[idx])
-                    Image(product.image)
+                ForEach(product.images.indices) { idx in
+
+                    Image(product.images[idx])
                         .resizable()
                         .scaledToFit()
                         .frame(width: 300, height: 360)

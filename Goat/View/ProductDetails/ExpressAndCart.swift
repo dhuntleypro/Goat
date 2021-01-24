@@ -28,7 +28,7 @@ struct ExpressAndCart: View {
         VStack {
             HStack {
                 // Express Checkout
-                NavigationLink(destination: CheckoutView()) {
+                NavigationLink(destination: CheckoutView(product: product)) {
                     Text("Express Checkout")
                         .fontWeight(.bold)
                         .foregroundColor(.white)

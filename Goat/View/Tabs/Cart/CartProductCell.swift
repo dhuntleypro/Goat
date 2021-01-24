@@ -9,30 +9,35 @@
 import SwiftUI
 
 struct CartProducttCell: View {
+    var product : Product
     var body: some View {
         HStack {
-            Image("batman")
+            Image(product.image)
                 .resizable()
-                .renderingMode(.original)
-                .frame(width: 170, height: 170)
                 .aspectRatio(contentMode: .fit)
+                .frame(width: 130 , height:100)
             
             VStack(alignment: .leading) {
-                Text("Name")
+            
+                Text("Name: \(product.name)")
                 Text("Size: S")
-                Text("Color: Black")
+                Text("Color: black")
+            // Text("Color: \(product.size)")
+          //      Text("Color: \(product.color)")
             }
-            .font(.system(size: 17, weight: .light, design: .rounded))
+            .font(.system(size: 14, weight: .light, design: .rounded))
             .padding()
+            .foregroundColor(.black)
             Spacer()
         }
         .padding()
+        
     }
 }
 
-struct CartProducttCell_Previews: PreviewProvider {
-    static var previews: some View {
-        CartProducttCell()
-    }
-}
-
+//struct CartProducttCell_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CartProducttCell()
+//    }
+//}
+//
