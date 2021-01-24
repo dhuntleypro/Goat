@@ -50,7 +50,7 @@ struct DiscoverView: View {
                                 label: {
                                     Text("Shop All")
                                         .foregroundColor(Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
-                                        .font(.system(size: 22, weight: .medium, design: .default))
+                                        .font(.system(size: 16, weight: .medium, design: .default))
                                     
                                 })
                         }
@@ -59,9 +59,9 @@ struct DiscoverView: View {
                         VStack {
                             
                             
-                            // Product Slider
-                            ScrollView(.horizontal, showsIndicators: false)
-                            {
+                            // FILTERED PRODUCT BY COLLECTION
+                            ScrollView(.horizontal, showsIndicators: false){
+                               
                                 HStack(spacing: 50) {
                                     
                                     ForEach(MOCK_PRODUCTS){ product in
@@ -86,10 +86,10 @@ struct DiscoverView: View {
                     }
                 }
             }
-            .edgesIgnoringSafeArea(.all)
-            .navigationBarHidden(true)
+            .padding(.bottom,  100)
         }
-        
+        .edgesIgnoringSafeArea(.all)
+        .navigationBarHidden(true)
     }
 }
 

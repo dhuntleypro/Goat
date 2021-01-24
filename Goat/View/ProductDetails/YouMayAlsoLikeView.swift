@@ -23,23 +23,7 @@ struct YouMayAlsoLikeView: View {
                 .font(.system(size: 14, weight: .regular, design: .default))
             
             
-            LazyVGrid(columns: columns) {
-                ForEach(MOCK_PRODUCTS) { product in
-                    
-                    // Link to Details view
-                    
-                    HStack(spacing: 0) {
-                        ForEach(MOCK_PRODUCTS){ items in
-                            
-                            NavigationLink(destination: ProductDetailsView(product: product)) {
-                               // TwoColumeItemRow(product: product)
-                            }
-                        }
-                    }
-                }
-                
-                Spacer(minLength: -10)
-            }
+            ProductCell02Loop()
             
             
             Button(action: {

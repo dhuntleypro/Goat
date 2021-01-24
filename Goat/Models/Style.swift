@@ -11,10 +11,14 @@ import SwiftUI
 
 struct Style: Identifiable {
     let id: Int
-    let name: String
+    let name: String // model name
+    let title: String
+    let caption: String
     let description: String
     let image: String
     let price: Double
+    let conditions : [String]
+    let tags: [String]
     let isCurrentUser: Bool
 }
 
@@ -22,42 +26,63 @@ struct Style: Identifiable {
 
 let MOCK_STYLE: [Style] = [
     .init(id: 0,
-          name: "Just Dropped",
+          name: "Mark White",
+          title: "Street Style",
+          caption: "Heart",
           description: "Hey what's up",
-          image: "collection-bg-1",
+          image: "style-bg-1",
           price: 110.0,
+          conditions: ["shorts"],
+          tags: ["shorts"],
           isCurrentUser: false
     ),
     
     .init(id: 1,
-          name: "T-Shirts",
+          name: "J Right",
+          title: "Greatest Spotlight",
+          caption: "J Right",
           description: "Hey what's up",
-          image: "collection-bg-2",
+          image: "style-bg-2",
           price: 110.0,
+          conditions: [""],
+          tags: ["shorts"],
           isCurrentUser: false
     ),
     
     .init(id: 2,
-          name: "Shorts",
+          name: "Rick Sanchez",
+          title: "Style Icon",
+          caption: "Rick Sanchez",
           description: "Hey what's up",
-          image: "collection-bg-3",
+          image: "style-bg-3",
           price: 320.0,
+          conditions: [""],
+          
+          tags: ["shorts"],
           isCurrentUser: false
     ),
     
     .init(id: 3,
-          name: "Favorites",
+          name: "Dret Jien",
+          title: "Blue Gang",
+          caption: "True People",
           description: "Hey what's up",
-          image: "collection-bg-4",
+          image: "style-bg-4",
           price: 220.0,
+          conditions: [""],
+          tags: ["shorts"],
           isCurrentUser: false
     ),
     
     .init(id: 4,
-          name: "Most Popular",
+          name: "Moss Sea",
+          title: "Fall Collection",
+          caption: "Love Harder",
           description: "Hey what's up",
-          image: "collection-bg-5",
+          image: "style-bg-5",
           price: 310.0,
+          conditions: [""],
+          tags: ["shorts"],
           isCurrentUser: false
     ),
 ]

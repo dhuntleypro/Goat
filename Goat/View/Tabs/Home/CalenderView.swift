@@ -24,6 +24,9 @@ struct CalenderView: View {
 
 struct CalenderView_Previews: PreviewProvider {
     static var previews: some View {
+        NavigationView {
         CalenderView()
+            
+        }
     }
 }

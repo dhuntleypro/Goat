@@ -9,9 +9,18 @@ import SwiftUI
 
 // Lazy Grid
 let columns = [
-   
-    GridItem(.flexible()),
-    GridItem(.flexible())
     
+    
+    
+    
+    GridItem(.flexible(), spacing: 0),
+    GridItem(.flexible(), spacing: 0)
+    
+//    GridItem(.flexible(minimum: 140)),
+//    GridItem(.flexible(minimum: 140))
+ 
+    //  GridItem(.fixed(200)),
+     // GridItem(.fixed(200))
+
 
 ]

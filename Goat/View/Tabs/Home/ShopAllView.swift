@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ShopAllView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
     var collection: Collection
     
     var body: some View {
@@ -22,15 +22,35 @@ struct ShopAllView: View {
                 
                 
                 Text(collection.name)
-                    .foregroundColor(.blue)
-                
-                
+                    .foregroundColor(.black)
+                    .font(.system(size: 30, weight: .medium, design: .default))
+                    
+                    .padding()
+                    .padding(.bottom)
                 
                 Text(collection.description)
-                    .bold()
+                    .font(.system(size: 20, weight: .medium, design: .default))
                 
-                ProductCell02Loop()
-                
+                // FILTERED PRODUCTS BY COLLECTION
+                LazyVGrid(columns: columns , spacing: 0) {
+                    ForEach(MOCK_PRODUCTS){ product in
+                        
+                        ForEach(product.tags,id:\.self){ tagName in
+                            
+                            ForEach(collection.conditions,id:\.self) { conditiondata in
+                                
+                                if collection.conditions.count != 0 && conditiondata == tagName {
+                                    NavigationLink(destination: ProductDetailsView(product: product)) {
+                                        
+                                        ProductCell02(product: product)
+                                        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
             }
             
             

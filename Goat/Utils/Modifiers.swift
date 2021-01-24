@@ -26,8 +26,12 @@ struct Modifiers: View {
                 Text("large")
             })
             .modifier(ClearButtonStyleLarge(bgColor: .black))
-                
-                
+             
+            Button(action: {}, label: {
+                Text("Want")
+            })
+            .modifier(ClearButtonEvenSmall(bgColor: .black))
+            
             
         }
         
@@ -59,6 +63,25 @@ struct ClearButtonEven: ViewModifier {
             )
     }
 }
+
+// See through Button
+struct ClearButtonEvenSmall: ViewModifier {
+    var bgColor: Color
+  
+    
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(bgColor)
+            .font(.system(size: 12, weight: .regular, design: .default))
+            .frame(width: 60, height: 30, alignment: .center)
+            .contentShape(Rectangle())
+            .overlay(
+                RoundedRectangle(cornerRadius: 4)
+                    .stroke(bgColor, lineWidth: 1)
+            )
+    }
+}
+
 
 
 // See through Button
