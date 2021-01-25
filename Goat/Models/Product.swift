@@ -16,12 +16,14 @@ struct Product: Identifiable {
     let images: [String]
     let price: Double
     let tags: [String]
-    let want: Bool
+    var want: Bool
     let brand : String
     let category : String
     let colorway : String
     let sku : String
     let releaseDate : String
+    let modelImage: String // for style view
+    let modelImages: [String] // for style view
     let isCurrentUser: Bool
     
     
@@ -61,6 +63,8 @@ let MOCK_PRODUCTS: [Product] = [
           colorway : "black",
           sku : "001",
           releaseDate : "02/02/2021",
+          modelImage: "model-1",
+          modelImages: [ "model-1",  "model-2",  "model-3"],
 
           isCurrentUser: false
     ),
@@ -88,6 +92,8 @@ let MOCK_PRODUCTS: [Product] = [
           colorway : "black",
           sku : "001",
           releaseDate : "02/02/2021",
+          modelImage: "model-2",
+          modelImages: [ "model-1",  "model-2",  "model-3"],
           isCurrentUser: false
     ),
     
@@ -113,6 +119,8 @@ let MOCK_PRODUCTS: [Product] = [
           colorway : "black",
           sku : "001",
           releaseDate : "02/02/2021",
+          modelImage: "model-3",
+          modelImages: [ "model-1",  "model-2",  "model-3"],
           isCurrentUser: false
     ),
     
@@ -131,6 +139,8 @@ let MOCK_PRODUCTS: [Product] = [
           colorway : "black",
           sku : "001",
           releaseDate : "02/02/2021",
+          modelImage: "model-4",
+          modelImages: [ "model-1",  "model-2",  "model-3"],
           isCurrentUser: false
     ),
     
@@ -156,6 +166,8 @@ let MOCK_PRODUCTS: [Product] = [
           colorway : "black",
           sku : "001",
           releaseDate : "02/02/2021",
+          modelImage: "model-5",
+          modelImages: [ "model-1",  "model-2",  "model-3"],
           isCurrentUser: false
     ),
 ]

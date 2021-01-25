@@ -52,6 +52,7 @@ struct ProductDetailsView: View {
                 })
             
             , trailing:
+                // (fix) should bde product.want
                 Button(action: {
                     want.toggle()
                 }, label: {
