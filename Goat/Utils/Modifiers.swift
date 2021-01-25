@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Modifiers: View {
+    @State var want = false
     var body: some View {
         VStack {
         Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
@@ -20,20 +21,20 @@ struct Modifiers: View {
                 Text("Small")
             })
             .modifier(ClearButtonStyleSmall(bgColor: .black))
-            
-            
+
+
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                 Text("large")
             })
             .modifier(ClearButtonStyleLarge(bgColor: .black))
-             
+
             Button(action: {}, label: {
                 Text("Want")
             })
             .modifier(ClearButtonEvenSmall(bgColor: .black))
-            
+
             Button(action: {}, label: {
-                
+
                 VStack(alignment: .leading ) {
                     Text("Standard: $12")
                         .foregroundColor(.black)
@@ -43,14 +44,22 @@ struct Modifiers: View {
                 }
             })
             .modifier(ClearButtonStyleleading(bgColor: .black))
-            
+
             Button(action: {}, label: {
                 Text("Checkout")
             })
             .modifier(myBlackCheckout(bgColor: .black))
             
+            Button(action: {
+                want.toggle()
+            }, label: {
+                Text("Want")
+                    .modifier(want ? myWhiteToBlackButton(black: false) : myWhiteToBlackButton(black: true))
+                
+            })
+        
             
-            
+
         }
         
         
@@ -162,7 +171,7 @@ struct ClearButtonStyleleading: ViewModifier {
 
 
 
-// Black Checkout
+// Black Checkout *
 struct myBlackCheckout: ViewModifier {
     var bgColor: Color
   
@@ -180,3 +189,24 @@ struct myBlackCheckout: ViewModifier {
             )
     }
 }
+
+// white to Black  Button *
+struct myWhiteToBlackButton: ViewModifier {
+    var black: Bool
+  
+    
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(black ? .white : .black)
+            .font(.system(size: 14, weight: .regular, design: .default))
+            .frame(width: 100, height: 35, alignment: .center)
+            .contentShape(Rectangle())
+            .background(Color(black ? .black : .white))
+            .overlay(
+                RoundedRectangle(cornerRadius: 4)
+                    .stroke(black ? Color.black : Color.black, lineWidth: 1)
+            )
+    }
+}
+
+

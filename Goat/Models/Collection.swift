@@ -22,46 +22,46 @@ struct Collection: Identifiable {
 let MOCK_COLLECTION: [Collection] = [
     .init(id: 0,
           name: "Just Dropped",
-          description: "Hey what's up",
+          description: "Check out the latest launches and new releases. Sneakers from Nike, Jordan, adidas, Vans, New Balance and more available now.",
           image: "collection-bg-1",
           price: 110.0,
-          conditions: ["accessories"],
+          conditions: ["Just Dropped"],
           isCurrentUser: false
     ),
     
     .init(id: 1,
-          name: "T-Shirts",
-          description: "Hey what's up",
+          name: "Most Popular",
+          description: "Be in the know and grab what's in style right now",
           image: "collection-bg-2",
           price: 110.0,
-          conditions: ["accessories" ],
+          conditions: ["Most Popular" ],
           isCurrentUser: false
     ),
     
     .init(id: 2,
-          name: "Shorts",
-          description: "Hey what's up",
+          name: "Our Favorites",
+          description: "We love all of our product but if your looking for our absolute favorite, check these out",
           image: "collection-bg-3",
           price: 320.0,
-          conditions: [""],
+          conditions: ["Our Favorites" , "our favorites"],
           isCurrentUser: false
     ),
     
     .init(id: 3,
-          name: "Favorites",
-          description: "Hey what's up",
+          name: "Winter 2021",
+          description: "Winter is here and it's getting cold out so ckeck these out",
           image: "collection-bg-4",
           price: 220.0,
-          conditions: [""],
+          conditions: ["Winter 2021"],
           isCurrentUser: false
     ),
     
     .init(id: 4,
-          name: "Most Popular",
-          description: "Hey what's up",
+          name: "2020",
+          description: "Its the end of the world and you can choose as many as you want",
           image: "collection-bg-5",
           price: 310.0,
-          conditions: [""],
+          conditions: ["2020"],
           isCurrentUser: false
     ),
 ]

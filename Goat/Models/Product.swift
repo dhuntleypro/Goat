@@ -16,7 +16,23 @@ struct Product: Identifiable {
     let images: [String]
     let price: Double
     let tags: [String]
+    let want: Bool
+    let brand : String
+    let category : String
+    let colorway : String
+    let sku : String
+    let releaseDate : String
     let isCurrentUser: Bool
+    
+    
+    //// create product Variants
+    // let name: String // Small , Medium
+    //let image: String
+    //let price: Double
+    //let colorway : String
+    //let sku : String
+    //let isCurrentUser: Bool
+
 }
 
 // Data source
@@ -37,7 +53,15 @@ let MOCK_PRODUCTS: [Product] = [
             "660244_08"
           ],
           price: 310.0,
-          tags: ["accessories"],
+          tags: ["2020", "Our Favorites", "Just Dropped" ],
+          
+          want: false,
+          brand : BRAND_NAME,
+          category : "sneakers",
+          colorway : "black",
+          sku : "001",
+          releaseDate : "02/02/2021",
+
           isCurrentUser: false
     ),
     
@@ -56,7 +80,14 @@ let MOCK_PRODUCTS: [Product] = [
             "602213_08"
           ],
           price: 110.0,
-          tags: ["short"],
+          tags: ["Just Dropped", "2020"],
+          
+          want: false,
+          brand : BRAND_NAME,
+          category : "sneakers",
+          colorway : "black",
+          sku : "001",
+          releaseDate : "02/02/2021",
           isCurrentUser: false
     ),
     
@@ -75,7 +106,13 @@ let MOCK_PRODUCTS: [Product] = [
             "718884_08"
           ],
           price: 320.0,
-          tags: ["favorite"],
+          tags: ["Just Dropped" ],
+          want: false,
+          brand : BRAND_NAME,
+          category : "sneakers",
+          colorway : "black",
+          sku : "001",
+          releaseDate : "02/02/2021",
           isCurrentUser: false
     ),
     
@@ -87,7 +124,13 @@ let MOCK_PRODUCTS: [Product] = [
             "EG7316"
           ],
           price: 220.0,
-          tags: ["favorite"],
+          tags: ["Our Favorites"],
+          want: false,
+          brand : BRAND_NAME,
+          category : "sneakers",
+          colorway : "black",
+          sku : "001",
+          releaseDate : "02/02/2021",
           isCurrentUser: false
     ),
     
@@ -106,7 +149,13 @@ let MOCK_PRODUCTS: [Product] = [
             "680720_08",
           ],
           price: 110.0,
-          tags: ["accessories"],
+          tags: ["Our Favorites", "Most Popular" , "Winter 2021"],
+          want: false,
+          brand : BRAND_NAME,
+          category : "sneakers",
+          colorway : "black",
+          sku : "001",
+          releaseDate : "02/02/2021",
           isCurrentUser: false
     ),
 ]

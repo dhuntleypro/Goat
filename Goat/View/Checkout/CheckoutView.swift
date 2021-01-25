@@ -57,14 +57,6 @@ struct CheckoutView: View {
 
 struct CheckoutView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckoutView(product: Product(id: 0,
-                                      name: "Air Jordan 13 Retro 'Starfish'",
-                                      description: "string",
-                                      image: "660244_01",
-                                      images: ["string"],
-                                      price: 358.78,
-                                      tags: ["string"],
-                                      isCurrentUser: true
-        ))
+        CheckoutView(product: MOCK_PRODUCTS[1])
     }
 }

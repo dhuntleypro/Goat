@@ -18,22 +18,19 @@ struct CartView: View {
                 
                 Spacer()
                 
-                // Button(action: {}) {
-                NavigationLink(destination:
-                                CheckoutView(product:
-                                                Product(id: 0,
-                                                        name: "name",
-                                                        description: "string",
-                                                        image: "string",
-                                                        images: ["string"],
-                                                        price: 0.0,
-                                                        tags: ["string"],
-                                                        isCurrentUser: true
-                                                )
-                                             
-                                )) {
-                    Text("Checkout")
-                        .modifier(ClearButtonStyleSmall(bgColor: .black))
+                HStack {
+                    // total
+                    Text("$496.95")
+                        .bold()
+                    
+                    NavigationLink(
+                        destination:
+                            // correct (Should not be mock , no data)
+                            CheckoutView(product: MOCK_PRODUCTS[1])){
+                        
+                        Text("Checkout")
+                            .modifier(ClearButtonStyleSmall(bgColor: .black))
+                    }
                 }
             }
             .padding()

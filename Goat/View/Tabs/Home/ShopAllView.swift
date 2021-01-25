@@ -12,24 +12,30 @@ struct ShopAllView: View {
     
     var collection: Collection
     
+    @State var showFilter = false
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
                 Image(collection.image)
                     .resizable()
-                    .scaledToFill()
-                    .frame(width: UIScreen.main.bounds.width, height: 330)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width, height: 300)
+                    .clipShape(Rectangle())
                 
                 
                 Text(collection.name)
                     .foregroundColor(.black)
                     .font(.system(size: 30, weight: .medium, design: .default))
-                    
                     .padding()
-                    .padding(.bottom)
+                    .padding(.bottom, 5)
                 
                 Text(collection.description)
-                    .font(.system(size: 20, weight: .medium, design: .default))
+                    .font(.system(size: 15, weight: .regular, design: .default))
+                    .padding(.horizontal, 25)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom)
+
+                
                 
                 // FILTERED PRODUCTS BY COLLECTION
                 LazyVGrid(columns: columns , spacing: 0) {
@@ -67,19 +73,24 @@ struct ShopAllView: View {
                 })
             
             , trailing:
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {
+                    showFilter.toggle()
+                }, label: {
                     Text("Filter")
                         .foregroundColor(.black)
                     
                 })
+                .fullScreenCover(isPresented: $showFilter) {
+                    FilterView()
+                }
             
             
         )
     }
 }
-//
-//struct ShopAllView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ShopAllView()
-//    }
-//}
+
+struct ShopAllView_Previews: PreviewProvider {
+    static var previews: some View {
+        ShopAllView(collection: MOCK_COLLECTION[1])
+    }
+}

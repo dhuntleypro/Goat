@@ -11,7 +11,7 @@ struct ProductDetailsView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     var product: Product
-    
+    @State var want = false
     var body: some View {
         ScrollView{
             VStack {
@@ -52,9 +52,11 @@ struct ProductDetailsView: View {
                 })
             
             , trailing:
-                Button(action: {}, label: {
+                Button(action: {
+                    want.toggle()
+                }, label: {
                     Text("Want")
-                        .foregroundColor(.black)
+                        .modifier(want ? myWhiteToBlackButton(black: true) : myWhiteToBlackButton(black: false))
                     
                 })
             

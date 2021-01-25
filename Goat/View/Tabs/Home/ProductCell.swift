@@ -39,8 +39,8 @@ struct ProductCell: View {
     }
 }
 
-//struct ProductCell_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProductCell(product: Product(id: 0, name: "yoooo", description: "ookdockosckokvodko", image: "602213_01", price: 457.87, isCurrentUser: true))
-//    }
-//}
+struct ProductCell_Previews: PreviewProvider {
+    static var previews: some View {
+        ProductCell(product: MOCK_PRODUCTS[1])
+    }
+}

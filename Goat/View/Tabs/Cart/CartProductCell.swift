@@ -21,7 +21,7 @@ struct CartProducttCell: View {
             
                 Text("Name: \(product.name)")
                 Text("Size: S")
-                Text("Color: black")
+                Text("Color: \(product.colorway)")
             // Text("Color: \(product.size)")
           //      Text("Color: \(product.color)")
             }

@@ -17,8 +17,9 @@ struct ViewAllView: View {
             VStack {
                 Image(style.image)
                     .resizable()
-                    .scaledToFill()
-                    .frame(width: UIScreen.main.bounds.width, height: 330)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width, height: 300)
+                    .clipShape(Rectangle())
                 
                 
                 Text(style.name)

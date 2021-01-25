@@ -24,7 +24,6 @@ struct ProductCategorySliderView: View {
                                 .font(.system(size: 14))
                                 .bold()
                                 .foregroundColor(.gray)
-                            
                         }
                         
                         
