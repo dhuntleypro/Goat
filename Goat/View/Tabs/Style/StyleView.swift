@@ -20,7 +20,7 @@ struct StyleView: View {
         VStack {
         ScrollView {
             VStack {
-                
+                 
                 
                 ForEach(MOCK_STYLE_COLLECTION) { collection in
                     // Section image
