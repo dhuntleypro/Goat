@@ -15,9 +15,11 @@ struct CalenderView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 
                 ProductCell02Loop()
-                
+                    .padding(.bottom, 100)
+
             }
-            
+            Spacer()
+
         }
     }
 }

@@ -14,6 +14,14 @@ struct StyleCollection: Identifiable {
     let image: String
     let price: Double
     let conditions: [String]
+    
+    
+    //style
+    let title: String
+    let caption: String
+    let modelName: String
+    let modelImage: String // for style view
+    
     let isCurrentUser: Bool
 }
 
@@ -26,6 +34,10 @@ let MOCK_STYLE_COLLECTION: [StyleCollection] = [
           image: "collection-bg-1",
           price: 110.0,
           conditions: ["Just Dropped"],
+          title: "String",
+          caption: "String",
+          modelName: "Power",
+          modelImage: "model-6",
           isCurrentUser: false
     ),
     
@@ -35,6 +47,10 @@ let MOCK_STYLE_COLLECTION: [StyleCollection] = [
           image: "collection-bg-2",
           price: 110.0,
           conditions: ["Most Popular" ],
+          title: "String",
+          caption: "String",
+          modelName: "Rick",
+          modelImage: "model-7",
           isCurrentUser: false
     ),
     
@@ -44,6 +60,10 @@ let MOCK_STYLE_COLLECTION: [StyleCollection] = [
           image: "collection-bg-3",
           price: 320.0,
           conditions: ["Our Favorites" , "our favorites"],
+          title: "String",
+          caption: "String",
+          modelName: "Haha",
+          modelImage: "model-8",
           isCurrentUser: false
     ),
     
@@ -53,6 +73,10 @@ let MOCK_STYLE_COLLECTION: [StyleCollection] = [
           image: "collection-bg-4",
           price: 220.0,
           conditions: ["Winter 2021"],
+          title: "String",
+          caption: "String",
+          modelName: "Lorry",
+          modelImage: "model-9",
           isCurrentUser: false
     ),
     
@@ -62,6 +86,10 @@ let MOCK_STYLE_COLLECTION: [StyleCollection] = [
           image: "collection-bg-5",
           price: 310.0,
           conditions: ["2020"],
+          title: "String",
+          caption: "String",
+          modelName: "Tom",
+          modelImage: "model-10",
           isCurrentUser: false
     ),
 ]

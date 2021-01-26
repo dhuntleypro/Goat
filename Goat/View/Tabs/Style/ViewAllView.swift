@@ -12,7 +12,7 @@ import SwiftUI
 struct ViewAllView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    var collection: Collection
+    var collection: StyleCollection
     
     @State var showFilter = false
     var body: some View {
@@ -25,7 +25,7 @@ struct ViewAllView: View {
                     .clipShape(Rectangle())
                 
                 
-                Text(collection.name)
+                Text(collection.title)
                     .foregroundColor(.black)
                     .font(.system(size: 30, weight: .medium, design: .default))
                     .padding()
@@ -93,7 +93,7 @@ struct ViewAllView: View {
 
 struct ViewAllView_Previews: PreviewProvider {
     static var previews: some View {
-        ViewAllView(collection: MOCK_COLLECTION[1])
+        ViewAllView(collection: MOCK_STYLE_COLLECTION[1])
     }
 }
 

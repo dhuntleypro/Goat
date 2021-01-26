@@ -30,6 +30,8 @@ struct DiscoverView: View {
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: UIScreen.main.bounds.width, height: 600)
+                            
+                                
                         }
                         
                         // Name and shop all
@@ -81,9 +83,13 @@ struct DiscoverView: View {
                                         }
                                     }
                                 }
+                                .padding(.trailing, 110)
                             }
+                            
                         }
+                        
                     }
+                    
                 }
             }
             .padding(.bottom,  100)

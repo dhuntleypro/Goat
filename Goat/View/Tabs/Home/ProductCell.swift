@@ -29,8 +29,16 @@ struct ProductCell: View {
                         .foregroundColor(.primary)
                     
                 }
-                .padding()
-                .padding(.bottom, 30)
+                
+                Text("\(product.price.clean)")
+                    .font(.subheadline)
+                    .multilineTextAlignment(.center)
+                    .frame(width: 170)
+                    .foregroundColor(.primary)
+                    .padding(.bottom, 30)
+
+                
+                
             }
             .padding(.leading, 30)
             .padding(.vertical,50)

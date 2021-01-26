@@ -14,19 +14,19 @@ struct StyleView: View {
     
     @State var condition = [String]()
     
-    var compareData = [Product]()
+    var compareData = [Style]()
     
     var body: some View {
-        
+        VStack {
         ScrollView {
             VStack {
                 
                 
-                ForEach(MOCK_COLLECTION) { collection in
+                ForEach(MOCK_STYLE_COLLECTION) { collection in
                     // Section image
                     VStack {
                         // Head Image for Collection
-                        NavigationLink(destination: ShopAllView(collection: collection)) {
+                        NavigationLink(destination: ViewAllView(collection: collection)) {
                             ZStack {
                                 Image(collection.modelImage)
                                     .resizable()
@@ -50,56 +50,53 @@ struct StyleView: View {
                         // Name and shop all
                         HStack {
                             Text(collection.modelName)
-                                .foregroundColor(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)))
+                                .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
                                 .font(.system(size: 22, weight: .medium, design: .default))
-                            
                             
                             Spacer()
                             
-                            
-                            NavigationLink(
-                                destination:
-                                    ViewAllView( collection: collection)
-                                //   Calender()
-                                ,
-                                label: {
-                                    Text("Shop All")
-                                        .foregroundColor(Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
-                                        .font(.system(size: 16, weight: .medium, design: .default))
-                                    
-                                })
+                            NavigationLink(destination: ViewAllView( collection: collection)) {
+                                Text("View All")
+                                    .foregroundColor(Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
+                                    .font(.system(size: 16, weight: .medium, design: .default))
+                            }
+                         
+                             
                         }
                         .padding(30)
                         
                         VStack {
-                            
-                            
+
+
                             // FILTERED PRODUCT BY COLLECTION
                             ScrollView(.horizontal, showsIndicators: false){
-                               
-                                HStack(spacing: 50) {
-                                    
-                                    ForEach(MOCK_PRODUCTS){ product in
-                                        
-                                        ForEach(product.tags,id:\.self){ tagName in
-                                            
+
+                                HStack(spacing: 20) {
+
+                                    ForEach(MOCK_STYLE){ style in
+
+                                        ForEach(style.tags,id:\.self){ tagName in
+
                                             ForEach(collection.conditions,id:\.self) { conditiondata in
-                                                
+
                                                 if collection.conditions.count != 0 && conditiondata == tagName {
-                                                    NavigationLink(destination:
-                                                                    StyleDetailsView(product: product)) {
-                                                        
-                                                        Image(product.modelImage)
+                                                    NavigationLink(destination: StyleDetailsView(style: style)) {
+
+                                                        Image(style.modelImage)
                                                             .resizable()
                                                             .scaledToFill()
-                                                            .frame(width: 250, height: 230)
-                                                        
+                                                            .frame(width: 250, height: 430)
+                                                            .clipShape(Rectangle())
+
+
+
                                                     }
                                                 }
                                             }
                                         }
                                     }
                                 }
+                                .padding(.trailing, 110)
                             }
                         }
                     }
@@ -107,8 +104,10 @@ struct StyleView: View {
             }
             .padding(.bottom,  100)
         }
+        }
+        .background(Color.black)
         // lessen highlight when holding down on screen
-       .buttonStyle(PlainButtonStyle())
+        .buttonStyle(PlainButtonStyle())
         .edgesIgnoringSafeArea(.all)
         .navigationBarHidden(true)
     }
@@ -134,7 +133,7 @@ struct StyleView: View {
 //
 //    @State var condition = [String]()
 //
-//    var compareData = [Product]()
+//    var compareData = [Style]()
 //
 //    var body: some View {
 //
@@ -179,7 +178,7 @@ struct StyleView: View {
 //                        VStack {
 //
 //
-//                            // Product Slider
+//                            // Style Slider
 //                            ScrollView(.horizontal, showsIndicators: false) {
 //                                HStack(spacing: 50) {
 //
@@ -191,7 +190,7 @@ struct StyleView: View {
 //
 //                                                if style.conditions.count != 0 && conditiondata == tagName {
 //                                                    NavigationLink(destination: StyleDetailsView()) {
-//                                                        StyleProductCell02(style: style)
+//                                                        StyleStyleCell02(style: style)
 //
 //
 //

@@ -175,7 +175,6 @@ struct ClearButtonStyleleading: ViewModifier {
 struct myBlackCheckout: ViewModifier {
     var bgColor: Color
   
-    
     func body(content: Content) -> some View {
         content
             .foregroundColor(.white)
@@ -194,12 +193,11 @@ struct myBlackCheckout: ViewModifier {
 struct myWhiteToBlackButton: ViewModifier {
     var black: Bool
   
-    
     func body(content: Content) -> some View {
         content
             .foregroundColor(black ? .white : .black)
-            .font(.system(size: 14, weight: .regular, design: .default))
-            .frame(width: 100, height: 35, alignment: .center)
+            .font(.system(size: 10, weight: .regular, design: .default))
+            .frame(width: 80, height: 30, alignment: .center)
             .contentShape(Rectangle())
             .background(Color(black ? .black : .white))
             .overlay(
