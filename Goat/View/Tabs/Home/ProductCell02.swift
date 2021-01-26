@@ -55,6 +55,7 @@ struct ProductCell02: View {
         
         
     }
+        .background(Color.white)
     .overlay(Rectangle().stroke(Color.gray, lineWidth: 1))
     
 

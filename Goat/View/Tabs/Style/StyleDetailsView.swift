@@ -15,88 +15,90 @@ struct StyleDetailsView: View {
     @State var like = false
     
     
-
+    
     @State var showRelatedProducts = false
     
-//    @State private var currentIndex = 0
-//    @State private var numberOfImages = 5 // get from style count
-//
-//    func previous(style: Style) {
-//
-//        _ = style.images.count
-//
-//        currentIndex = currentIndex > 0 ? currentIndex - 1 : numberOfImages - 1
-//    }
-//
-//    func next() {
-//        currentIndex = currentIndex < numberOfImages ? currentIndex + 1 : 0
-//    }
-//
-//
+    //    @State private var currentIndex = 0
+    //    @State private var numberOfImages = 5 // get from style count
+    //
+    //    func previous(style: Style) {
+    //
+    //        _ = style.images.count
+    //
+    //        currentIndex = currentIndex > 0 ? currentIndex - 1 : numberOfImages - 1
+    //    }
+    //
+    //    func next() {
+    //        currentIndex = currentIndex < numberOfImages ? currentIndex + 1 : 0
+    //    }
+    //
+    //
     
     
     var body: some View {
-        
         TabView{
-       
             
-             //   ScrollView(.horizontal) {
-                ForEach(style.modelImages.indices) { idx in
-                   
-                    VStack {
-                 //   HStack{
-                    HStack {
-                    ZStack(alignment: .bottomTrailing) {
-                        
-                            Image(style.modelImages[idx])
-                  //      Image(style.modelImages[3])
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: UIScreen.main.bounds.width, height: 670)
-                            .clipShape(Rectangle())
-                        
-                        Button(action: {
-                            self.showRelatedProducts.toggle()
-                        }) {
-                            ZStack {
-                                Image(systemName: "circle.fill")
-                                    .font(.system(size: 40, weight: .regular))
-                                    .foregroundColor(.white)
-                                
-                                
-                                Text("5")
-                                    .font(.system(size: 10, weight: .regular))
-                                    .foregroundColor(.black)
-                            }
-                            .padding()
-                            
-                        }
-                        .frame(width: 75, height: 75)
-                        .sheet(isPresented: $showRelatedProducts) {
-                            RelatedProductView()
-                        }
-                    }
-                    }
-             //   }
+            
+            //   ScrollView(.horizontal) {
+            ForEach(style.modelImages.indices) { idx in
                 
-                Spacer()
-                HStack {
-                    Button(action: {
-                        like.toggle()
-                    }) {
-                        Text("55 LIKES")
+                VStack {
+                    //   HStack{
+                    HStack {
+                        ZStack(alignment: .bottomTrailing) {
+                            
+                            Image(style.modelImages[idx])
+                                //      Image(style.modelImages[3])
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: UIScreen.main.bounds.width, height: 670)
+                                .clipShape(Rectangle())
+                            
+                            Button(action: {
+                                self.showRelatedProducts.toggle()
+                            }) {
+                                ZStack {
+                                    Image(systemName: "circle.fill")
+                                        .font(.system(size: 40, weight: .regular))
+                                        .foregroundColor(.white)
+                                    
+                                    
+                                    Text("5")
+                                        .font(.system(size: 10, weight: .regular))
+                                        .foregroundColor(.black)
+                                }
+                                .padding()
+                                
+                            }
+                            .frame(width: 75, height: 75)
+                            .sheet(isPresented: $showRelatedProducts) {
+                                RelatedProductView()
+                            }
+                        }
                     }
-                    .modifier(like ? myWhiteToBlackButton(black: true) : myWhiteToBlackButton(black: false))
-                    .padding()
+                    //   }
                     
                     Spacer()
-                }
+                    HStack {
+                        Button(action: {
+                            like.toggle()
+                        }) {
+                            Text("55 LIKES")
+                        }
+                        .modifier(like ? myWhiteToBlackButton(black: true) : myWhiteToBlackButton(black: false))
+                        .padding()
+                        
                         Spacer()
-
+                    }
+                    Spacer()
+                    
+                }
             }
+
         }
-        }
+        
         .tabViewStyle(PageTabViewStyle())
+        .navigationBarTitle("STYLE", displayMode: .inline)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(
             leading:
@@ -112,7 +114,7 @@ struct StyleDetailsView: View {
                     .padding(.trailing)
                     
                     Button(action: {
-                    //    previous()
+                        //    previous()
                     }) {
                         Image(systemName: "arrow.left")
                             .foregroundColor(.black)
@@ -120,7 +122,7 @@ struct StyleDetailsView: View {
                     
                     Button(action: {
                         
-                    //    next()
+                        //    next()
                     }) {
                         Image(systemName: "arrow.right")
                             .foregroundColor(.black)

@@ -16,53 +16,63 @@ struct ViewAllView: View {
     
     @State var showFilter = false
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack {
-                Image(collection.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width, height: 300)
-                    .clipShape(Rectangle())
-                
-                
-                Text(collection.title)
-                    .foregroundColor(.black)
-                    .font(.system(size: 30, weight: .medium, design: .default))
-                    .padding()
-                    .padding(.bottom, 5)
-                
-                Text(collection.description)
-                    .font(.system(size: 15, weight: .regular, design: .default))
-                    .padding(.horizontal, 25)
-                    .multilineTextAlignment(.center)
-                    .padding(.bottom)
-
-                
-                
-                // FILTERED PRODUCTS BY COLLECTION
-                LazyVGrid(columns: columns , spacing: 0) {
-                    ForEach(MOCK_PRODUCTS){ product in
-                        
-                        ForEach(product.tags,id:\.self){ tagName in
+        ZStack {
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack {
+                    Image(collection.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: UIScreen.main.bounds.width, height: 500)
+                        .clipShape(Rectangle())
+                    
+                    
+                    Text(collection.title)
+                        .foregroundColor(.white)
+                        .font(.system(size: 30, weight: .medium, design: .default))
+                        .padding()
+                        .padding(.bottom, 5)
+                    
+                    Text(collection.description)
+                        .foregroundColor(.white)
+                        .font(.system(size: 15, weight: .regular, design: .default))
+                        .padding(.horizontal, 25)
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom)
+                    
+                    
+                    
+                    // FILTERED PRODUCTS BY COLLECTION
+                    LazyVGrid(columns: columns , spacing: 0) {
+                        ForEach(MOCK_STYLE){ style in
                             
-                            ForEach(collection.conditions,id:\.self) { conditiondata in
+                            ForEach(style.tags,id:\.self){ tagName in
                                 
-                                if collection.conditions.count != 0 && conditiondata == tagName {
-                                    NavigationLink(destination: ProductDetailsView(product: product)) {
-                                        
-                                        ProductCell02(product: product)
-                                        
+                                ForEach(collection.conditions,id:\.self) { conditiondata in
+                                    
+                                    if collection.conditions.count != 0 && conditiondata == tagName {
+                                        NavigationLink(destination: StyleDetailsView(style: style)) {
+                                            
+                                            Image(style.modelImage)
+                                                .resizable()
+                                                .scaledToFill()
+                                               // .frame(width: 250, height: 250)
+                                              //  .clipShape(Rectangle())
+
+
+                                            
+                                        }
                                     }
                                 }
                             }
                         }
+                        
                     }
-                    
                 }
+                
+                
             }
-            
-            
         }
+        .background(Color.black).edgesIgnoringSafeArea(.all)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(
             leading:
@@ -74,17 +84,17 @@ struct ViewAllView: View {
                         .foregroundColor(.black)
                 })
             
-            , trailing:
-                Button(action: {
-                    showFilter.toggle()
-                }, label: {
-                    Text("Filter")
-                        .foregroundColor(.black)
-                    
-                })
-                .fullScreenCover(isPresented: $showFilter) {
-                    FilterView()
-                }
+            //            , trailing:
+            //                Button(action: {
+            //                    showFilter.toggle()
+            //                }, label: {
+            //                    Text("Filter")
+            //                        .foregroundColor(.black)
+            //
+            //                })
+            //                .fullScreenCover(isPresented: $showFilter) {
+            //                    FilterView()
+            //                }
             
             
         )
