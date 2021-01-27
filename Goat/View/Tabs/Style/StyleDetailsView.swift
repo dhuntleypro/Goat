@@ -51,7 +51,7 @@ struct StyleDetailsView: View {
                                 //      Image(style.modelImages[3])
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: UIScreen.main.bounds.width, height: 670)
+                                .frame(width: UIScreen.main.bounds.width, height: 630)
                                 .clipShape(Rectangle())
                             
                             Button(action: {

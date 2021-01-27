@@ -27,6 +27,11 @@ struct ProfileView: View {
                 Text("Settings")
             }
             
+            NavigationLink(destination: OrdersView()) {
+                Text("Log Out")
+                    .foregroundColor(.red)
+            }
+            
             
         }
     }

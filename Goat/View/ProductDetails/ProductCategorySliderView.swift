@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductCategorySliderView: View {
     var product: Product
+  //  var product: ProductVariant
 
     var body: some View {
         VStack(spacing: 30) {
@@ -16,11 +17,26 @@ struct ProductCategorySliderView: View {
                 ScrollView(.horizontal, showsIndicators: false)  {
                     HStack (spacing : 30 ){
                         VStack {
-                            Text("BRAND")
+                            Text("Brand")
                                 .font(.system(size: 14))
                                 .foregroundColor(.black)
-                           // Text(product.brand)
-                            Text(product.description)
+                            
+                            Text(product.brand)
+                                .font(.system(size: 14))
+                                .bold()
+                                .foregroundColor(.gray)
+                            
+                        }
+                        
+                        
+                        Divider()
+                        
+                        VStack {
+                            Text("Category")
+                                .font(.system(size: 14))
+                                .foregroundColor(.black)
+                
+                            Text(product.category)
                                 .font(.system(size: 14))
                                 .bold()
                                 .foregroundColor(.gray)
@@ -30,53 +46,43 @@ struct ProductCategorySliderView: View {
                         Divider()
                         
                         VStack {
-                            Text("CATEGORY")
+                            Text("Main Color")
                                 .font(.system(size: 14))
                                 .foregroundColor(.black)
-                           // Text(product.season)
-                            Text(product.description)
-                                .font(.system(size: 14))
-                                .bold()
-                                .foregroundColor(.gray)
+                            NavigationLink( destination: Text("Related Products by Color")) {
+                                // (fix)
+                                Text("Blue")
+                                    .underline()
+                                    .font(.system(size: 14))
+                                    .bold()
+                                    .foregroundColor(.gray)
+                            }
                         }
                         
                         
                         Divider()
                         
                         VStack {
-                            Text("COLORWAY")
+                            Text("sku")
                                 .font(.system(size: 14))
                                 .foregroundColor(.black)
-                            Text(product.description)
-                           // Text(product.colorway)
+                            
+                            Text(product.sku)
                                 .font(.system(size: 14))
                                 .bold()
                                 .foregroundColor(.gray)
+                            
                         }
                         
                         
                         Divider()
                         
                         VStack {
-                            Text("SKU")
+                            Text("Release Date")
                                 .font(.system(size: 14))
                                 .foregroundColor(.black)
-                          //  Text(product.sku)
-                            Text(product.description)
-                                .font(.system(size: 14))
-                                .bold()
-                                .foregroundColor(.gray)
-                        }
-                        
-                        
-                        Divider()
-                        
-                        VStack {
-                            Text("RELEASE DATE")
-                                .font(.system(size: 14))
-                                .foregroundColor(.black)
-                          //  Text(product.releaseDate)
-                            Text(product.description)
+                            //  Text(product.releaseDate)
+                            Text(product.releaseDate)
                                 .font(.system(size: 14))
                                 .bold()
                                 .foregroundColor(.gray)

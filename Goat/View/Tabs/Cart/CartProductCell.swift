@@ -9,7 +9,9 @@
 import SwiftUI
 
 struct CartProducttCell: View {
-    var product : Product
+  //  var product : ProductVariant
+    var product: Product
+
     var body: some View {
         HStack {
             Image(product.image)
@@ -21,7 +23,7 @@ struct CartProducttCell: View {
             
                 Text("Name: \(product.name)")
                 Text("Size: S")
-                Text("Color: \(product.colorway)")
+                Text("Color: Black")
             // Text("Color: \(product.size)")
           //      Text("Color: \(product.color)")
             }

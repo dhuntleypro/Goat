@@ -30,7 +30,7 @@ struct ProductCell: View {
                     
                 }
                 
-                Text("\(product.price.clean)")
+                Text("$\(product.price.clean)")
                     .font(.subheadline)
                     .multilineTextAlignment(.center)
                     .frame(width: 170)

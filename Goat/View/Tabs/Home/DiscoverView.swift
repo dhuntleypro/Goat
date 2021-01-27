@@ -25,7 +25,10 @@ struct DiscoverView: View {
                     // Section image
                     VStack {
                         // Head Image for Collection
-                        NavigationLink(destination: ShopAllView(collection: collection)) {
+                        NavigationLink(destination:
+                                        ShopAllView(collection: collection)
+                                       // TextScrollSheet()
+                        ) {
                             Image(collection.image)
                                 .resizable()
                                 .scaledToFill()

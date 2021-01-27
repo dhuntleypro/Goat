@@ -9,45 +9,78 @@ import SwiftUI
 
 struct ProductDetailsView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
     var product: Product
+  //  var productV: ProductVariant
+
     @State var want = false
+    
+    @State var isOpen = false
+    @State var maxHeight = 0
+    
+    @State var showBottonView = true
+    @State private var offset: CGFloat = -200.0
+    
     var body: some View {
-        ScrollView{
-            VStack {
-                // Fix (Should be Array of images)
-                ImageSiderView(product: product)
+        
+    //    GeometryReader { outsideProxy in
+            ZStack {
+            ScrollView {
+             //   GeometryReader { insideProxy in
+                    
+                        
+                        
+                        VStack {
+                            // Fix (Should be Array of images)
+                            ImageSiderView(product: product)
+                            
+                            ExpressAndCart(product: product)
+                            
+                            Text(product.name)
+                                .font(.system(size: 22, weight: .bold, design: .rounded))
+                                .lineLimit(3)
+                                .multilineTextAlignment(.center)
+                                .padding(.vertical ,20)
+                            
+                            Divider()
+                            
+                            ProductCategorySliderView(product: product)
+                            
+                            DescriptionView(product: product)
+                            
+                            ShippingProductView()
+                            
+                            YouMayAlsoLikeView(product: product)
+                        }
+                        
+                        
+                        
+                    }
+                    
+
+               
                 
-                ExpressAndCart(product: product)
-                
-                Text(product.name)
-                    .font(.system(size: 22, weight: .bold, design: .rounded))
-                    .lineLimit(3)
-                    .multilineTextAlignment(.center)
-                    .padding(.vertical ,20)
-                
-                Divider()
-                
-                ProductCategorySliderView(product: product)
-                
-                DescriptionView(product: product)
-                
-                ShippingProductView()
-                
-                YouMayAlsoLikeView(product: product)
-                
-            }
+                VStack {
+                    Spacer()
+                    BottomSheetSizeView(isOpen: $isOpen)
+                    
+                }
         }
+        
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(
             leading:
-    
+                
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
-
+                    
                 }, label: {
                     Image(systemName: "arrow.backward")
+                        .font(.system(size: 20))
                         .foregroundColor(.black)
+                        .padding(.vertical)
+                        .padding(.trailing)
+                    
                     
                 })
             
@@ -63,14 +96,15 @@ struct ProductDetailsView: View {
             
             
         )
+        
     }
 }
 
-//struct ProductDetailsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NavigationView {
-//            ProductDetailsView(product: Product(id: 0, name: "name", description: "description....", image: "680720_01", price: 355, tags: ["String"], isCurrentUser: true))
-//            
-//        }
-//    }
-//}
+struct ProductDetailsView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            ProductDetailsView(product: MOCK_PRODUCTS[0])
+            
+        }
+    }
+}
