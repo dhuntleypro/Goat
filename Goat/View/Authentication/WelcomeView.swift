@@ -9,7 +9,14 @@ import SwiftUI
 
 struct WelcomeView: View {
     @State var showLogin = false
+    @State var showStatesAndCountriesView = false
+    
+    @State var isOpenforStateAndCountries = false
+    @State var lightBg = true
+    
+    @State var stateSearch = ""
     var body: some View {
+        
         NavigationView{
         ZStack {
             Image("model-1")
@@ -32,9 +39,15 @@ struct WelcomeView: View {
                         
                         HStack(spacing: 0) {
                             Text("Shopping from ")
-                            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                            Button(action: {
+                                isOpenforStateAndCountries.toggle()
+                            }, label: {
                                 Text("United States").underline()
                             })
+                            
+                               
+                            
+                            
                         }
                         .foregroundColor(.white)
                     }
@@ -66,6 +79,10 @@ struct WelcomeView: View {
 
                 }
             }
+            
+            
+            BottomSheetShopForView(isOpen: $isOpenforStateAndCountries, lightBg: $lightBg, stateSearch: $stateSearch)
+            .offset(y: 100)
         }
         .navigationBarHidden(true)
         }

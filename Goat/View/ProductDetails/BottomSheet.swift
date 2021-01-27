@@ -16,6 +16,8 @@ fileprivate enum Constants {
 }
 struct BottomSheetView<Content: View>: View {
     @Binding var isOpen: Bool
+    @Binding var lightBg : Bool
+
     let maxHeight: CGFloat
     let minHeight: CGFloat
     let content: Content
@@ -38,12 +40,15 @@ struct BottomSheetView<Content: View>: View {
     }
     
     
-    init(isOpen: Binding<Bool>, maxHeight: CGFloat, @ViewBuilder content: () -> Content) {
+    init(isOpen: Binding<Bool> , lightBg: Binding<Bool>, maxHeight: CGFloat, @ViewBuilder content: () -> Content) {
         self.minHeight = maxHeight * Constants.minHeightRatio
         self.maxHeight = maxHeight
         self.content = content()
         self._isOpen = isOpen
+        self._lightBg = lightBg
+
     }
+    
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
@@ -52,7 +57,7 @@ struct BottomSheetView<Content: View>: View {
                 self.content
             }
             .frame(width: geometry.size.width, height: self.maxHeight, alignment: .top)
-            .background(Color(.black)) // background
+            .background(Color(lightBg ? .systemGray3 : .black)) // background
             .cornerRadius(Constants.radius)
             .frame(height: geometry.size.height, alignment: .bottom)
             .offset(y: max(self.offset + self.translation, 0))
@@ -75,7 +80,7 @@ struct BottomSheetView<Content: View>: View {
 
 struct BottomSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        BottomSheetView(isOpen: .constant(false), maxHeight: 650) {
+        BottomSheetView(isOpen: .constant(false), lightBg: .constant(false), maxHeight: 650) {
             Rectangle().fill(Color.red)
         }.edgesIgnoringSafeArea(.all)
     }

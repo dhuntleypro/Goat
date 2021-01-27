@@ -10,8 +10,9 @@ import SwiftUI
 struct BottomSheetSizeView: View {
     
     @Binding var isOpen : Bool
+    @Binding var lightBg : Bool
     var body: some View {
-        BottomSheetView(isOpen: $isOpen, maxHeight: 650) {
+        BottomSheetView(isOpen: $isOpen, lightBg: $lightBg, maxHeight: 650) {
             VStack {
                 ScrollView(.horizontal, showsIndicators: true)  {
                     HStack(spacing: 50) {
@@ -57,6 +58,6 @@ struct BottomSheetSizeView: View {
 
 struct BottomSheetSizeView_Previews: PreviewProvider {
     static var previews: some View {
-        BottomSheetSizeView(isOpen: .constant(false))
+        BottomSheetSizeView(isOpen: .constant(false), lightBg: .constant(false))
     }
 }

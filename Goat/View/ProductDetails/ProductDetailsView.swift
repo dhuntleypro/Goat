@@ -16,6 +16,8 @@ struct ProductDetailsView: View {
     @State var want = false
     
     @State var isOpen = false
+    @State var lightBg = false
+    
     @State var maxHeight = 0
     
     @State var showBottonView = true
@@ -62,7 +64,7 @@ struct ProductDetailsView: View {
                 
                 VStack {
                     Spacer()
-                    BottomSheetSizeView(isOpen: $isOpen)
+                    BottomSheetSizeView(isOpen: $isOpen, lightBg: $lightBg)
                     
                 }
         }

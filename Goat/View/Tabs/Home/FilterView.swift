@@ -24,7 +24,7 @@ struct FilterView: View {
                 }
                 
                 ScrollView(.horizontal) {
-                    HStack(spacing: 30) {
+                    HStack(spacing: 31) {
                         ForEach(MOCK_COLLECTION) { collection in
                             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                                 Text(collection.name)

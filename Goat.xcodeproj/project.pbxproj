@@ -17,6 +17,8 @@
 		861B8DA725C1AB2D000DD0D8 /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B8DA625C1AB2D000DD0D8 /* TextArea.swift */; };
 		861B8DAE25C1AEE8000DD0D8 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B8DAD25C1AEE8000DD0D8 /* CustomSecureField.swift */; };
 		861B8DB125C1C005000DD0D8 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B8DB025C1C005000DD0D8 /* ImagePicker.swift */; };
+		861B8DB625C1C3E3000DD0D8 /* StatesAndCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B8DB525C1C3E3000DD0D8 /* StatesAndCountries.swift */; };
+		861B8DBA25C1C511000DD0D8 /* BottomSheetShopForView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861B8DB925C1C511000DD0D8 /* BottomSheetShopForView.swift */; };
 		86441CD625BD37A3002A8EA2 /* StyleProductCell02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86441CD525BD37A3002A8EA2 /* StyleProductCell02.swift */; };
 		86441CD925BD3868002A8EA2 /* StyleDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86441CD825BD3868002A8EA2 /* StyleDetailsView.swift */; };
 		86441CDE25BDA839002A8EA2 /* WantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86441CDD25BDA839002A8EA2 /* WantView.swift */; };
@@ -78,6 +80,8 @@
 		861B8DA625C1AB2D000DD0D8 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
 		861B8DAD25C1AEE8000DD0D8 /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 		861B8DB025C1C005000DD0D8 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		861B8DB525C1C3E3000DD0D8 /* StatesAndCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatesAndCountries.swift; sourceTree = "<group>"; };
+		861B8DB925C1C511000DD0D8 /* BottomSheetShopForView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetShopForView.swift; sourceTree = "<group>"; };
 		86441CD525BD37A3002A8EA2 /* StyleProductCell02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleProductCell02.swift; sourceTree = "<group>"; };
 		86441CD825BD3868002A8EA2 /* StyleDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleDetailsView.swift; sourceTree = "<group>"; };
 		86441CDD25BDA839002A8EA2 /* WantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantView.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				861B8D9E25C1A4DD000DD0D8 /* WelcomeView.swift */,
 				861B8D9725C1A448000DD0D8 /* LoginView.swift */,
 				861B8D9B25C1A45F000DD0D8 /* RegistrationView.swift */,
+				861B8DB925C1C511000DD0D8 /* BottomSheetShopForView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 				86D9231A25BCCD3600DA864D /* Collection.swift */,
 				86D9231D25BCCD8300DA864D /* Style.swift */,
 				86BE32FC25BF007F00F06388 /* StyleCollection.swift */,
+				861B8DB525C1C3E3000DD0D8 /* StatesAndCountries.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -442,6 +448,7 @@
 				86D922F125BCC88100DA864D /* ProductCell02.swift in Sources */,
 				86D922E425BCC80500DA864D /* Constants.swift in Sources */,
 				861B8D9825C1A448000DD0D8 /* LoginView.swift in Sources */,
+				861B8DBA25C1C511000DD0D8 /* BottomSheetShopForView.swift in Sources */,
 				86441CD625BD37A3002A8EA2 /* StyleProductCell02.swift in Sources */,
 				86D9231B25BCCD3600DA864D /* Collection.swift in Sources */,
 				86D9230825BCC94F00DA864D /* ShippingProductView.swift in Sources */,
@@ -454,6 +461,7 @@
 				86BE32F825BEF4FF00F06388 /* ShippingSheetView.swift in Sources */,
 				867AC74025BDC44400E75653 /* CartItemSliderView.swift in Sources */,
 				86D9235E25BCD85700DA864D /* ShopAllView.swift in Sources */,
+				861B8DB625C1C3E3000DD0D8 /* StatesAndCountries.swift in Sources */,
 				86D9232125BCCDAF00DA864D /* StyleImageCell.swift in Sources */,
 				861B8DA725C1AB2D000DD0D8 /* TextArea.swift in Sources */,
 				86D9232F25BCCE1C00DA864D /* CartProductCell.swift in Sources */,

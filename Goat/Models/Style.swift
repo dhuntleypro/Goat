@@ -28,14 +28,6 @@ struct Style: Identifiable {
     let modelImages: [String] // for style view
     let isCurrentUser: Bool
     
-    
-    //// create product Variants
-    // let name: String // Small , Medium
-    //let image: String
-    //let price: Double
-    //let colorway : String
-    //let sku : String
-    //let isCurrentUser: Bool
 
 }
 

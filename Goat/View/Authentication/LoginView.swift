@@ -67,7 +67,7 @@ struct LoginView: View {
                             .bold()
                             .padding(.vertical, 7)
                         
-                        CustomSecureField(text: $email, placeholder: Text("Password"), lightBg: true)
+                        CustomSecureField(text: $password, placeholder: Text("Password"), lightBg: true)
                             .padding()
                             .background(Color(.init(white: 1, alpha: 0.15)))
                             .cornerRadius(10)
