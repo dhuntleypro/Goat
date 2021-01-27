@@ -26,7 +26,8 @@ struct GoatApp: App {
     var body: some Scene {
 
         WindowGroup {
-            ContentView()
+            WelcomeView()
+        //    ContentView() // tab view
         }
     }
 }
