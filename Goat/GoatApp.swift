@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct GoatApp: App {
@@ -13,6 +14,10 @@ struct GoatApp: App {
     
     
     init() {
+        // Firebase
+        FirebaseApp.configure()
+        
+        
         // Tab bar
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().backgroundImage = UIImage()
@@ -26,8 +31,9 @@ struct GoatApp: App {
     var body: some Scene {
 
         WindowGroup {
-            WelcomeView()
+         //   WelcomeView()
         //    ContentView() // tab view
+            AppNavigation().environmentObject(AuthViewModel())
         }
     }
 }

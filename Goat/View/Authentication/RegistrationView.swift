@@ -11,7 +11,7 @@ struct RegistrationView: View {
     @State var email = ""
     @State var password = ""
     @State var fullname = ""
-    @State var usernaame = ""
+    @State var username = ""
     
     
     @State var showImagePicker = false
@@ -22,7 +22,7 @@ struct RegistrationView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     // Firebase
-    //@ObservedObject var viewModel = AuthViewModel()
+    @ObservedObject var viewModel = AuthViewModel()
   //  @EnvironmentObject var viewModel: AuthViewModel
 
     
@@ -84,7 +84,7 @@ struct RegistrationView: View {
                         .foregroundColor(.white)
                     
                     // USERNAME
-                    CustomTextField(text: $usernaame, placeholder: Text("Username") , imageName: "person", lightBg: true)
+                    CustomTextField(text: $username, placeholder: Text("Username") , imageName: "person", lightBg: true)
                         .padding()
                         .background(Color(.init(white: 1, alpha: 0.15)))
                         .cornerRadius(10)
@@ -104,14 +104,14 @@ struct RegistrationView: View {
               
                 
                 Button(action: {
-               //     guard let image = selectedUIImage else { return }
+                    guard let image = selectedUIImage else { return }
                     
-//                    viewModel.register(email: email,
-//                                       password: password,
-//                                       username: usernaame,
-//                                       fullname: fullname,
-//                                       profileImage: image
-//                    )
+                    viewModel.register(email: email,
+                                       password: password,
+                                       username: username,
+                                       fullname: fullname,
+                                       profileImage: image
+                    )
                 }, label: {
                     Text("Sign Up")
                         .font(.headline)
@@ -147,6 +147,7 @@ struct RegistrationView: View {
         }
         .background(Color(.gray))
         .edgesIgnoringSafeArea(.all)
+        .navigationBarBackButtonHidden(true)
         
     }
 }

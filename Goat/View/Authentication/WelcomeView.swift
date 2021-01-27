@@ -17,12 +17,11 @@ struct WelcomeView: View {
     @State var stateSearch = ""
     var body: some View {
         
-        NavigationView{
         ZStack {
             Image("model-1")
                 .resizable()
                 .scaledToFill()
-                .frame(width: UIScreen.main.bounds.width, height: 900)
+                .frame(width: UIScreen.main.bounds.width, height: 1000)
                 .overlay(Color(.black).opacity(0.5))
             VStack {
                 Spacer()
@@ -53,11 +52,14 @@ struct WelcomeView: View {
                     }
                     .font(.system(size: 12))
                     
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                        Text("Sign Up").bold()
-                    })
+                    NavigationLink(destination: RegistrationView()) {
+                        Text("Sign Up")
+
+                        
+                    }
                     .modifier(ClearButtonStyleLarge(bgColor: .white))
                     .padding()
+
                     
                     
                     HStack {
@@ -85,7 +87,7 @@ struct WelcomeView: View {
             .offset(y: 100)
         }
         .navigationBarHidden(true)
-        }
+        
     }
 }
 

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
+
     var body: some View {
     
         List() {
@@ -27,11 +29,15 @@ struct ProfileView: View {
                 Text("Settings")
             }
             
-            NavigationLink(destination: OrdersView()) {
+            Button(action: {
+                viewModel.signOut()
+
+            }, label: {
                 Text("Log Out")
                     .foregroundColor(.red)
-            }
-            
+
+            })
+           
             
         }
     }
