@@ -40,6 +40,7 @@
 		86BE32F525BEE6FF00F06388 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BE32F425BEE6FF00F06388 /* FilterView.swift */; };
 		86BE32F825BEF4FF00F06388 /* ShippingSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BE32F725BEF4FF00F06388 /* ShippingSheetView.swift */; };
 		86BE32FD25BF007F00F06388 /* StyleCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BE32FC25BF007F00F06388 /* StyleCollection.swift */; };
+		86C0972625DAB72A008398DB /* AdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0972525DAB72A008398DB /* AdminView.swift */; };
 		86C5C06B25BF6F78001DC577 /* RelatedProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C5C06A25BF6F78001DC577 /* RelatedProductView.swift */; };
 		86D922C625BCC70600DA864D /* GoatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D922C525BCC70600DA864D /* GoatApp.swift */; };
 		86D922C825BCC70600DA864D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D922C725BCC70600DA864D /* ContentView.swift */; };
@@ -109,6 +110,7 @@
 		86BE32F425BEE6FF00F06388 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		86BE32F725BEF4FF00F06388 /* ShippingSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingSheetView.swift; sourceTree = "<group>"; };
 		86BE32FC25BF007F00F06388 /* StyleCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleCollection.swift; sourceTree = "<group>"; };
+		86C0972525DAB72A008398DB /* AdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminView.swift; sourceTree = "<group>"; };
 		86C5C06A25BF6F78001DC577 /* RelatedProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedProductView.swift; sourceTree = "<group>"; };
 		86D922C225BCC70600DA864D /* Goat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D922C525BCC70600DA864D /* GoatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoatApp.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				861B8DD925C2014E000DD0D8 /* AppNavigation.swift */,
+				86C0972525DAB72A008398DB /* AdminView.swift */,
 				861B8D9625C1A432000DD0D8 /* Authentication */,
 				86D922C725BCC70600DA864D /* ContentView.swift */,
 				867AC73D25BDC41100E75653 /* Checkout */,
@@ -500,6 +503,7 @@
 				86D922E125BCC7DF00DA864D /* Modifiers.swift in Sources */,
 				86D9231725BCCD2C00DA864D /* Product.swift in Sources */,
 				86BE32F825BEF4FF00F06388 /* ShippingSheetView.swift in Sources */,
+				86C0972625DAB72A008398DB /* AdminView.swift in Sources */,
 				867AC74025BDC44400E75653 /* CartItemSliderView.swift in Sources */,
 				86D9235E25BCD85700DA864D /* ShopAllView.swift in Sources */,
 				861B8DB625C1C3E3000DD0D8 /* StatesAndCountries.swift in Sources */,

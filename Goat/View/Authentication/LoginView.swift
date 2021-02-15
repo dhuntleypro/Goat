@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct LoginView: View {
-    
+    @EnvironmentObject var viewModel: AuthViewModel
+
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var email = ""
     @State var password = ""
     
+    @State var adminLoggedIn = false
     
     var body: some View {
             ZStack {
@@ -82,12 +84,21 @@ struct LoginView: View {
                                     .bold()
                                     .foregroundColor(.white)
                                     .padding(.top)
-                                    
+                                
                             })
                         }
                         
                         Button(action: {
-                           // viewModel.login(withEmail: email, password: password)
+                            viewModel.login(withEmail: email, password: password)
+                            guard let uid = viewModel.userSession?.uid else { return }
+                            
+                            if uid == "Nef9mwaHviaFG7WfrYnLdQEVO5u2" {
+                                self.adminLoggedIn = true
+                            } else {
+                                
+                            }
+                            
+                            
                         }, label: {
                             Text("Sign In")
                                 .font(.headline)

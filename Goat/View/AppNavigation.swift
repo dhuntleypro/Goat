@@ -12,12 +12,22 @@ struct AppNavigation: View {
     
     var body: some View {
         Group {
-            if viewModel.userSession != nil {
+            if viewModel.userSession != nil &&  viewModel.userSession?.uid != "Nef9mwaHviaFG7WfrYnLdQEVO5u2"{
+                //   adminLoggedIn == true
+                
                 NavigationView {
                     ContentView()
                     
                 }
-            } else {
+            }
+            
+            if viewModel.userSession != nil &&  viewModel.userSession?.uid == "Nef9mwaHviaFG7WfrYnLdQEVO5u2"{
+                
+                NavigationView {
+                    AdminView()
+                    
+                }
+            }else {
                 NavigationView {
                     WelcomeView()
                 }
