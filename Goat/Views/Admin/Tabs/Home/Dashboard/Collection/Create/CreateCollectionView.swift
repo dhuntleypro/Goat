@@ -72,7 +72,7 @@ struct CreateCollectionView: View {
     var body: some View {
         
         
-        NavigationView {
+    //    NavigationView {
             ZStack {
                 VStack(alignment: .leading) {
                     Group {
@@ -342,9 +342,9 @@ struct CreateCollectionView: View {
                 
             }
             .frame(width: UIScreen.main.bounds.width)
-            .navigationBarHidden(true)
+         //   .navigationBarHidden(true)
             
-        }
+     //   }
         
         
         

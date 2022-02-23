@@ -30,7 +30,7 @@ struct YouMayAlsoLikeView: View {
                         ProductCell01(product: product)
 
                     }
-                    .navigationViewStyle(StackNavigationViewStyle())
+                //    .navigationViewStyle(StackNavigationViewStyle())
                 }
             }
             

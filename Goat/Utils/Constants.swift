@@ -14,18 +14,18 @@ import Firebase
 let currentUid = AuthViewModel.shared.userSession?.uid
 
 //DEFAULT FONT
-var largeFont = 32
-var medFont = 28
+let largeFont = 32
+let medFont = 28
 
 struct Messages {
     
     static let storeSavedFailure = "Unable to save the store!"
 }
 
-var NOSTYLE =  true
+let NOSTYLE =  true
 let DEMO_ID = "mxu44uWUqANZD2Jfv63JgGAFVTK2"
 
-var CURRENT_STORE_ID = ""
+let CURRENT_STORE_ID = ""
 
 // Brand Name
 let BRAND_NAME = "YAW DENIM"
@@ -120,4 +120,4 @@ let COLLECTION_TWEETS = Firestore.firestore().collection("tweets")
 let COLLECTION_MESSAGES = Firestore.firestore().collection("messages")
 
 
-var ADMIN_UIDS = ["JaDWp8rFDfVSGy1A9gnw04DZDO33", "BjWta0QOK7QaujSV5iM5OktV0Vl1", "normal User"]
+let ADMIN_UIDS = ["JaDWp8rFDfVSGy1A9gnw04DZDO33", "BjWta0QOK7QaujSV5iM5OktV0Vl1", "normal User"]

@@ -80,7 +80,7 @@ struct CreateProductView: View {
     }
    
     var body: some View {
-        NavigationView{
+      //  NavigationView{
             
             ZStack {
                 ScrollView {
@@ -213,7 +213,7 @@ struct CreateProductView: View {
                 }
             }
             .navigationBarHidden(true)
-        }
+   //     }
     }
 }
 

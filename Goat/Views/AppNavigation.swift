@@ -13,41 +13,40 @@ struct AppNavigation: View {
     
     
     var body: some View {
+      //  NavigationView {
        // Group {
             // Admin - Store owner (un-paid)
             if viewModel.userSession != nil && ADMIN_UIDS.contains(viewModel.user?.id ?? "abc") {
-                NavigationView {
+               
                 // OnboardingPage1View() // show once
                    DashboardView()
                
-                }
-                .navigationViewStyle(StackNavigationViewStyle())
+              
 
             // Average customer (error)
             } else if viewModel.userSession != nil  && ADMIN_UIDS.contains("normal User") {
                 
-                NavigationView {
+                
                     VStack {
                         MainTabView()
                       //  DashboardView()
                     }
                     //   .navigationBarTitle(viewModel.tabTitle(forIndex: selectedIndex))
                     //   .navigationBarTitleDisplayMode(.inline)
-                }
-                .navigationViewStyle(StackNavigationViewStyle())
+              
 
                 
             } else if viewModel.userSession == nil {
-                NavigationView {
+              
                     WelcomeView()
                     // LoginView()
-                }
-                .navigationViewStyle(StackNavigationViewStyle())
+              
 
             } else {
                 Text("error with navigation")
             }
       //  }
+     //   .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

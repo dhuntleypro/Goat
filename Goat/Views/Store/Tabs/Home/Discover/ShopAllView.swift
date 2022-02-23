@@ -125,8 +125,8 @@ struct ShopAllView: View {
 
 struct ShopAllView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView() {
+     //   NavigationView() {
         ShopAllView( collection: Collection(dictionary: ["image" : "collection5"]))
-        }
+     //   }
     }
 }

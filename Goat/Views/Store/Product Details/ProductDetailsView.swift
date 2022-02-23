@@ -100,49 +100,49 @@ struct ProductDetailsView: View {
 
            
         }
-        .navigationViewStyle(StackNavigationViewStyle())
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(
-            leading:
-
-                Button(action: {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        self.presentation.wrappedValue.dismiss()
-                    }
-                }) {
-                    Image(systemName: "arrow.backward")
-                        .foregroundColor(.black)
-                }
-            , trailing:
-                HStack {
-                    NavigationLink(destination: CartView()
-
-                    ) {
-                        Image(systemName: "cart")
-                            .font(.system(size:20))
-                            .foregroundColor(.black)
-                    }
-                    
-                    NavigationLink(destination: WantView()) {
-                        Text(product.want ? "Added" : "Want")
-                            .foregroundColor(.black)
-                            .modifier(product.want ? myClearButton100BY35(bgColor: .black) :  myClearButton100BY35(bgColor: .gray))
-                        
-                    }
-                }
-                
-            
-            
-        )
+        //  .navigationViewStyle(StackNavigationViewStyle())
+      //  .navigationBarBackButtonHidden(true)
+//        .navigationBarItems(
+//            leading:
+//
+//                Button(action: {
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                        self.presentation.wrappedValue.dismiss()
+//                    }
+//                }) {
+//                    Image(systemName: "arrow.backward")
+//                        .foregroundColor(.black)
+//                }
+//            , trailing:
+//                HStack {
+//                    NavigationLink(destination: CartView()
+//
+//                    ) {
+//                        Image(systemName: "cart")
+//                            .font(.system(size:20))
+//                            .foregroundColor(.black)
+//                    }
+//                    
+//                    NavigationLink(destination: WantView()) {
+//                        Text(product.want ? "Added" : "Want")
+//                            .foregroundColor(.black)
+//                            .modifier(product.want ? myClearButton100BY35(bgColor: .black) :  myClearButton100BY35(bgColor: .gray))
+//                        
+//                    }
+//                }
+//                
+//            
+//            
+//        )
     }
 }
 
 struct ProductDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        //  NavigationView {
             ProductDetailsView(product: Product(dictionary: ["String" : "Any"]))
 
-        }
+      //  }
     }
 }
 

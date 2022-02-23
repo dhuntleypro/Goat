@@ -47,11 +47,18 @@ struct HomeView: View {
                         
                         //discover content
                         if selectedOption == .Discover {
+                            NavigationView{
                             DiscoverView(editMode: $editMode)
                                 .background(Color.white).edgesIgnoringSafeArea(.all)
+                            }
+                            .navigationBarHidden(true)
+
                         } else if selectedOption == .Calender {
+                            NavigationView{
                             CalenderView()
                                 .background(Color.white).edgesIgnoringSafeArea(.all)
+                        }
+                        .navigationBarHidden(true)
                         } else {
                             
                         }
@@ -64,7 +71,7 @@ struct HomeView: View {
             }
             
         }
-        .navigationBarHidden(true)
+        
     }
 }
 
