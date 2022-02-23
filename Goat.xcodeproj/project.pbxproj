@@ -491,10 +491,10 @@
 		E30B7D6427C6070C00A8F299 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E30B7DA827C6070C00A8F299 /* AppNavigation.swift */,
 				E30B7D6527C6070C00A8F299 /* Design */,
 				E30B7D6A27C6070C00A8F299 /* Admin */,
 				E30B7D9D27C6070C00A8F299 /* Welcome */,
-				E30B7DA827C6070C00A8F299 /* AppNavigation.swift */,
 				E30B7DA927C6070C00A8F299 /* OnBoarding */,
 				E30B7DAD27C6070C00A8F299 /* Store */,
 			);
