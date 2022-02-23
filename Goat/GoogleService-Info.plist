@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>492192444836-ta28e0kbit0uocdki82gfrtl8bvlgtam.apps.googleusercontent.com</string>
+	<string>370711045240-fqa9ci6ueubpceadmv124tm9dfdcjqon.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.492192444836-ta28e0kbit0uocdki82gfrtl8bvlgtam</string>
+	<string>com.googleusercontent.apps.370711045240-fqa9ci6ueubpceadmv124tm9dfdcjqon</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDtRPvyx0lb1LvrNtalr3ewDPDb990Gdvk</string>
+	<string>AIzaSyAtdXWvs3Oepv9POj-zwd18D1oIPtn8knQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>492192444836</string>
+	<string>370711045240</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.dhuntleyinc.Goat</string>
 	<key>PROJECT_ID</key>
-	<string>goat-85d42</string>
+	<string>goat-79b8a</string>
 	<key>STORAGE_BUCKET</key>
-	<string>goat-85d42.appspot.com</string>
+	<string>goat-79b8a.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:492192444836:ios:728da040c4413629c41131</string>
+	<string>1:370711045240:ios:19a4d2dc0bab65a4c1f98d</string>
 </dict>
 </plist>

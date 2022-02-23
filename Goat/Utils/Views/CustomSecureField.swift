@@ -1,19 +1,16 @@
 //
 //  CustomSecureField.swift
-//  Goat
+//  OurStore
 //
-//  Created by Darrien Huntley on 1/27/21.
+//  Created by Darrien Huntley on 4/28/21.
 //
+
 
 import SwiftUI
 
-
-// (tip) allow for custom color in tect field
 struct CustomSecureField: View {
     @Binding var text: String
     let placeholder: Text
-   
-    let lightBg : Bool
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -28,8 +25,8 @@ struct CustomSecureField: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 20, height: 20)
-                    .foregroundColor(lightBg ? .black : .white)
-
+                    .foregroundColor(.white)
+                
                 SecureField("", text: $text)
             }
         }

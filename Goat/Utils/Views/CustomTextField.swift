@@ -1,8 +1,8 @@
 //
 //  CustomTextField.swift
-//  Goat
+//  OurStore
 //
-//  Created by Darrien Huntley on 1/27/21.
+//  Created by Darrien Huntley on 4/28/21.
 //
 
 import SwiftUI
@@ -13,7 +13,6 @@ struct CustomTextField: View {
     @Binding var text: String
     let placeholder: Text
     let imageName : String
-    let lightBg : Bool
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -28,7 +27,7 @@ struct CustomTextField: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 20, height: 20)
-                    .foregroundColor(lightBg ? .black : .white)
+                    .foregroundColor(.white)
                 
                 TextField("", text: $text)
             }
@@ -38,7 +37,7 @@ struct CustomTextField: View {
 
 struct CustomTextField_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTextField(text: .constant(""), placeholder:  Text(""), imageName: "envolope", lightBg: true)
+        CustomTextField(text: .constant(""), placeholder:  Text(""), imageName: "envolope")
             .frame(height: 300)
             .background(Color.green)
    

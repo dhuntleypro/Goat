@@ -1,95 +1,93 @@
 //
 //  Collection.swift
-//  Goat
+//  OurStore
 //
-//  Created by Darrien Huntley on 1/23/21.
+//  Created by Darrien Huntley on 4/28/21.
 //
+
+
 
 import SwiftUI
+import Firebase
 
 struct Collection: Identifiable {
-    let id: Int
-    let name: String
+    let id: String // for each product
+    
+    // items
+    let title : String
+    let caption : String
     let description: String
-    let image: String
-    let price: Double
-    let conditions: [String]
+    var amount : Int
+    let likes : Int
+    var onSale: Bool
+    var image : String
+    var images : [String]
+    var imagesURL : String
+    var sequenceCount : Int
+    var conditions : [String]
+  
+    var active: Bool
+    
+    // user
+    let username: String
+    let profileImageURL: String
+    let fullname: String
+    let uid : String // for each user
+    
+    let timestamp: Timestamp
+    
+    init(dictionary : [String: Any]) {
+        self.id = dictionary["id"] as? String ?? ""
+        
+        // items
+        self.title = dictionary["title"] as? String ?? ""
+        self.caption = dictionary["caption"] as? String ?? ""
+        self.description = dictionary["description"] as? String ?? ""
+        self.amount = dictionary["amount"] as? Int ?? 0
+        self.likes = dictionary["likes"] as? Int ?? 0
+        self.onSale = dictionary["onSale"] as? Bool ?? false
+        self.image = dictionary["image"] as? String ?? ""
+
+        self.images = dictionary["images"] as? [String] ?? [""]
+        self.imagesURL = dictionary["imagesURL"] as? String ?? ""
+        self.sequenceCount = dictionary["sequenceCount"] as? Int ?? 0
+        self.conditions = dictionary["conditions"] as? [String] ?? [""]
+     
+        self.active = dictionary["active"] as? Bool ?? false
+
+            
+        // user
+        self.username = dictionary["username"] as? String ?? ""
+        self.profileImageURL = dictionary["profileImageURL"] as? String ?? ""
+        self.fullname = dictionary["fullname"] as? String ?? ""
+        self.uid = dictionary["uid"] as? String ?? ""
+        
+        self.timestamp = dictionary["timestamp"] as? Timestamp ?? Timestamp(date: Date())
+
+    }
+    
+    // 4d (time abbreviated)
+    var timestampString: String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.second, .minute, .hour, .day, .weekOfMonth, .day, .month, .year]
+        formatter.maximumUnitCount = 1
+        formatter.unitsStyle = .abbreviated
+        
+        // AGE
+     //   return formatter.string(from: timestamp.dateValue(), to: Date()) ?? ""
+        
+        // CREATION DATE
+        return formatter.string(for: timestamp.dateValue()) ?? ""
+
+        
+    }
+    
+    var detailedTimestampString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a · MM/dd/yyyy"
+        return formatter.string(from: timestamp.dateValue())
+    }
     
     
-    //style
-    let title: String
-    let caption: String
-    let modelName: String
-    let modelImage: String // for style view
     
-    let isCurrentUser: Bool
 }
-
-// Data source
-
-let MOCK_COLLECTION: [Collection] = [
-    .init(id: 0,
-          name: "Just Dropped",
-          description: "Check out the latest launches and new releases. Sneakers from Nike, Jordan, adidas, Vans, New Balance and more available now.",
-          image: "collection-bg-1",
-          price: 110.0,
-          conditions: ["Just Dropped"],
-          title: "String",
-          caption: "String",
-          modelName: "Power",
-          modelImage: "model-6",
-          isCurrentUser: false
-    ),
-    
-    .init(id: 1,
-          name: "Most Popular",
-          description: "Be in the know and grab what's in style right now",
-          image: "collection-bg-2",
-          price: 110.0,
-          conditions: ["Most Popular" ],
-          title: "String",
-          caption: "String",
-          modelName: "Rick",
-          modelImage: "model-7",
-          isCurrentUser: false
-    ),
-    
-    .init(id: 2,
-          name: "Our Favorites",
-          description: "We love all of our product but if your looking for our absolute favorite, check these out",
-          image: "collection-bg-3",
-          price: 320.0,
-          conditions: ["Our Favorites" , "our favorites"],
-          title: "String",
-          caption: "String",
-          modelName: "Haha",
-          modelImage: "model-8",
-          isCurrentUser: false
-    ),
-    
-    .init(id: 3,
-          name: "Winter 2021",
-          description: "Winter is here and it's getting cold out so ckeck these out",
-          image: "collection-bg-4",
-          price: 220.0,
-          conditions: ["Winter 2021"],
-          title: "String",
-          caption: "String",
-          modelName: "Lorry",
-          modelImage: "model-9",
-          isCurrentUser: false
-    ),
-    
-    .init(id: 4,
-          name: "2020",
-          description: "Its the end of the world and you can choose as many as you want",
-          image: "collection-bg-5",
-          price: 310.0,
-          conditions: ["2020"],
-          title: "String",
-          caption: "String",
-          modelName: "Tom",
-          modelImage: "model-10",
-          isCurrentUser: false
-    ),
-]

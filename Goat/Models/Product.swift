@@ -1,138 +1,137 @@
 //
 //  Product.swift
-//  Goat
+//  OurStore
 //
-//  Created by Darrien Huntley on 1/23/21.
+//  Created by Darrien Huntley on 4/28/21.
 //
-
 
 import SwiftUI
+import Firebase
 
 struct Product: Identifiable {
-    let id: Int
-    let name: String
-    let description: String
-    let image: String
-    let images: [String]
-    let price: Double
-    let tags: [String]
-    let brand : String
-    let category : String
-    let sku : String
-    let releaseDate : String
-    let isCurrentUser: Bool
+    let id: String // for each product
+    
+    // items
+    var name : String
+    var description: String
+    var isAdded : Bool
+    var cost : Float// NSNumber
+    var likes : Int
+    var taxed: Bool
+    var variantItem : Bool
+    var size: [String]
+    var sizeType : Int
+    var sizePricing :  [Float]
+    var sizeQuantity :[Int]
+    var quantity : Int
+    var onSale: Bool
+    var onSalePrice : Float // change to nsNumber
+    var tags : [String]
+    var brand : String
+    var category : String
+    var sku : String
+    var mainColor : String
+    var want : Bool
+    var releaseDate : String
+    var images : [String]
+    var onAppImages: [String]
+    var soldOut : Bool
+    var row : Int
+    var active: Bool
 
+    
+    // user
+    let username: String
+    let profileImageURL: String
+    let fullname: String
+    let uid : String // for each user
+    
+    let timestamp: Timestamp
+    
+    init(dictionary : [String: Any]) {
+        self.id = dictionary["id"] as? String ?? ""
+        
+        // items
+        self.name = dictionary["name"] as? String ?? ""
+        self.description = dictionary["description"] as? String ?? ""
+        self.isAdded = dictionary["isAdded"] as? Bool ?? false
+        self.variantItem = dictionary["variantItem"] as? Bool ?? false
+        self.cost = dictionary["cost"] as? Float ?? 0.0
+        self.likes = dictionary["likes"] as? Int ?? 0
+        self.taxed = dictionary["taxed"] as? Bool ?? false
+        self.onSale = dictionary["onSale"] as? Bool ?? false
+        self.onSalePrice = dictionary["onSalePrice"] as? Float ?? 0.0
+        self.want = dictionary["want"] as? Bool ?? false
+        self.images = dictionary["images"] as? [String] ?? [""]
+        self.tags = dictionary["tags"] as? [String] ?? [""]
+        self.brand = dictionary["brand"] as? String ?? ""
+        self.category = dictionary["category"] as? String ?? ""
+        self.sku = dictionary["sku"] as? String ?? ""
+        self.mainColor = dictionary["mainColor"] as? String ?? ""
+        self.releaseDate = dictionary["releaseDate"] as? String ?? ""
+        self.onAppImages = dictionary["onAppImages"] as? [String] ?? [""]
+        self.size = dictionary["size"] as? [String] ?? [""]
+        self.sizeType  = dictionary["sizeQuantity"] as? Int ?? 0
+        self.sizePricing  = dictionary["sizePricing"] as? [Float] ?? [0.0]
+        self.sizeQuantity  = dictionary["sizeQuantity"] as? [Int] ?? [0]
+        self.quantity = dictionary["quantity"] as? Int ?? 0
+        self.soldOut = dictionary["soldOut"] as? Bool ?? false
+        self.row = dictionary["row"] as? Int ?? 0
+
+        self.active = dictionary["active"] as? Bool ?? false
+
+        // user
+        self.username = dictionary["username"] as? String ?? ""
+        self.profileImageURL = dictionary["profileImageURL"] as? String ?? ""
+        self.fullname = dictionary["fullname"] as? String ?? ""
+        self.uid = dictionary["uid"] as? String ?? ""
+        
+        self.timestamp = dictionary["timestamp"] as? Timestamp ?? Timestamp(date: Date())
+
+    }
+    
+    // 4d (time abbreviated)
+    var timestampString: String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.second, .minute, .hour, .day, .weekOfMonth, .day, .month, .year]
+        formatter.maximumUnitCount = 1
+        formatter.unitsStyle = .abbreviated
+        
+        // AGE
+     //   return formatter.string(from: timestamp.dateValue(), to: Date()) ?? ""
+        
+        // CREATION DATE
+        return formatter.string(for: timestamp.dateValue()) ?? ""
+
+        
+    }
+    
+    var detailedTimestampString: String {
+        let formatter = DateFormatter()
+     //   formatter.dateFormat = "h:mm a · MM/dd/yyyy"
+
+        formatter.dateFormat = "MM|dd|yyyy"
+        return formatter.string(from: timestamp.dateValue())
+    }
 }
 
-// Data source
 
-let MOCK_PRODUCTS: [Product] = [
-    .init(id: 0,
-          name: "Air Jordan 13 Retro 'Starfish'",
-          description: "The Air Jordan 13 Retro ‘Starfish’ features a familiar color palette that recalls the ‘Shattered Backboard’ editions of the Air Jordan 1. The upper combines a white tumbled leather base with orange suede paneling and signature dimpled overlays in more white leather. Traditional branding elements include an embroidered Jumpman atop the tongue and the 13's holographic eye on the lateral ankle. A contrasting black finish is applied to the panther-paw outsole.",
-          image: "660244_01",
-          images: [
-            "660244_01",
-            "660244_02",
-            "660244_03",
-            "660244_04",
-            "660244_05",
-            "660244_06",
-            "660244_07",
-            "660244_08"
-          ],
-          price: 310.00,
-          tags: ["2020", "Our Favorites", "Just Dropped" ],
-          brand : BRAND_NAME,
-          category : "sneakers",
-          sku : "001",
-          releaseDate : "02/02/2021",
-        
-          isCurrentUser: false
-    ),
-    
-    .init(id: 1,
-          name: "Air Jordan 1 Retro High OG 'Volt Gold'",
-          description: "The Air Jordan 1 Retro High OG ‘Volt Gold’ gives the iconic model a subtle makeover that takes its design cues from previous Air Jordan 1 colorways. Unique details include a reversed translucent tag on an exposed foam tongue and detached collar flaps in an eye-catching shade of Volt. The rest of the leather upper is rendered in tri-tonal color blocking, featuring a crisp white base with contrasting black forefoot overlays and a heel panel in University Gold.",
-          image: "602213_01",
-          images: [
-            "602213_01",
-            "602213_02",
-            "602213_03",
-            "602213_04",
-            "602213_05",
-            "602213_06",
-            "602213_07",
-            "602213_08"
-          ],
-          price: 110.80,
-          tags: ["Just Dropped", "2020"],
-          brand : BRAND_NAME,
-          category : "sneakers",
-          sku : "001",
-          releaseDate : "02/02/2021",
-          isCurrentUser: false
-    ),
-    
-    .init(id: 2,
-          name: "Notre x Dunk High 'Midnight Navy'",
-          description: "The Notre x Nike Dunk High ‘Midnight Navy’ draws inspiration from the Chicago-based retailer’s midwestern roots and community-driven ethos. The design of the high-top takes its cues from classic workwear, highlighted by a pale indigo leather upper with shaggy suede overlays and breathable canvas on the medial side panel. Utilitarian details include triple stitch detailing, a webbing pull tab and an embroidered Notre name patch atop the left tongue. The store’s signature linked hands logo is integrated into the medial-side Swoosh.",
-          image: "718884_01",
-          images: [
-            "718884_01",
-            "718884_02",
-            "718884_03",
-            "718884_04",
-            "718884_05",
-            "718884_06",
-            "718884_07",
-            "718884_08"
-          ],
-          price: 320.60,
-          tags: ["Just Dropped" ],
-          brand : BRAND_NAME,
-          category : "sneakers",
-          sku : "001",
-          releaseDate : "02/02/2021",
-          isCurrentUser: false
-    ),
-    
-    .init(id: 3,
-          name: "Toy Story 4 x NMD_R1 Kids 'Bo Peep'",
-          description: "adidas and Disney, powerhouses in their own fields, combined forces to revamp kids’-sized versions of some the Three-Stripes brand’s top models inspired from Pixar’s popular Toy Story film series. Dropped in June 2019, the Toy Story 4 x NMD_R1 Kids 'Bo Peep' sneaker is dressed in a pastel-colored stretch knit upper, detailed with a Bo Peep sockliner, as well as a polka dot Boost sole with the character’s name.",
-          image: "EG7316",
-          images: [
-            "EG7316"
-          ],
-          price: 220.07,
-          tags: ["Our Favorites"],
-          brand : BRAND_NAME,
-          category : "sneakers",
-          sku : "001",
-          releaseDate : "02/02/2021",
-          isCurrentUser: false
-    ),
-    
-    .init(id: 4,
-          name: "Wmns Air Jordan 4 Retro 'Starfish'",
-          description: "The women’s Air Jordan 4 Retro ‘Starfish’ updates the classic silhouette with a unique build inspired by an astronaut’s spacesuit. Black metallic mesh covers the upper, contrasted by Starfish orange underlays that stand out via the sneaker’s raw-edge construction. Matte black distinguishes the TPU wings and heel tab, accented with a raised Jumpman in light grey. A second Jumpman adorns the woven tag stitched atop an exposed-foam tongue. Underfoot, the rubber outsole is accented with additional pops of Starfish under the toe and heel.",
-          image: "680720_01",
-          images: [
-            "680720_01",
-            "680720_02",
-            "680720_03",
-            "680720_04",
-            "680720_05",
-            "680720_06",
-            "680720_07",
-            "680720_08",
-          ],
-          price: 110.80,
-          tags: ["Our Favorites", "Most Popular" , "Winter 2021"],
-          brand : BRAND_NAME,
-          category : "sneakers",
-          sku : "001",
-          releaseDate : "02/02/2021",
-          isCurrentUser: false
-    ),
-]
+//
+//extension Array where Element == ProductSize {
+//    func formatForFirebase() -> [[String:Any]]{
+//        var returnVal:[[String:Any]] = []
+//        for element in self {
+//            returnVal.append(element.ProductSize(dictionary: $0.data()))
+//
+//            self.productSizes = ProductSize(dictionary: $0.data())
+//
+//            productSize.append(ProductSize(dictionary: ["name" : sizes[0],
+//                                                        "amount" : amount,
+//                                                        "amountUnit" : ProductSizeUnit(rawValue: "XS")!
+//            ]))
+//        }
+//
+//        return returnVal
+//    }
+//
+//}

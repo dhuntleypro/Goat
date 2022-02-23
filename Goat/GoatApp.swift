@@ -33,7 +33,10 @@ struct GoatApp: App {
         WindowGroup {
          //   WelcomeView()
         //    ContentView() // tab view
-            AppNavigation().environmentObject(AuthViewModel())
+            AppNavigation()
+             //   .environmentObject(AuthViewModel())
+                .environmentObject(AuthViewModel.shared)
+            //    .environmentObject(store)
         }
     }
 }
